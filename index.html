@@ -2,170 +2,197 @@
 <html lang="pt-BR"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Luzi indica · achadinhos para casa</title>
+<title>Mavi indica · achadinhos para casa</title>
+<link rel="icon" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --verde: #2F3B35; --terracota: #C8694A; --creme: #FBF3E6; --amarelo: #FFD27A; --texto: #2B2622; --suave: #8B847B; }
+  :root { --verde: #1F4A3A; --mostarda: #E0A526; --ouro: #F2C14E; --creme: #FFF6E8; --texto: #22281F; --suave: #7D8077; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Poppins, sans-serif; background: #F4ECE0; color: var(--texto); }
-  header { background: radial-gradient(ellipse 120% 90% at 50% 0%, #4A5A4F 0%, var(--verde) 70%);
-           color: var(--creme); text-align: center; padding: 36px 16px 30px; }
-  .avatar { width: 92px; height: 92px; border-radius: 50%; background: var(--terracota); margin: 0 auto 14px;
-            display: flex; align-items: center; justify-content: center; font-family: Fraunces, serif;
-            font-size: 40px; font-weight: 700; border: 4px solid var(--amarelo); }
-  h1 { font-family: Fraunces, serif; font-size: 34px; }
-  .sub { color: var(--amarelo); font-weight: 600; margin-top: 4px; }
-  .atualizado { font-size: 12px; opacity: .7; margin-top: 10px; }
+  html { scroll-behavior: smooth; }
+  body { font-family: Poppins, sans-serif; background: #F6F1E4; color: var(--texto); }
+  header { background: radial-gradient(ellipse 120% 90% at 50% 0%, #2E6650 0%, var(--verde) 70%);
+           color: var(--creme); text-align: center; padding: 30px 16px 24px; }
+  .avatar { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 12px; display: block;
+            border: 3px solid var(--mostarda); }
+  h1 { font-family: Fraunces, serif; font-size: 32px; }
+  .sub { color: var(--ouro); font-weight: 600; margin-top: 2px; }
+  .atualizado { font-size: 12px; opacity: .7; margin-top: 8px; }
+  .busca { display: flex; gap: 8px; max-width: 320px; margin: 16px auto 0; }
+  .busca input { flex: 1; min-width: 0; border: none; border-radius: 30px; padding: 11px 16px; font: 500 15px Poppins, sans-serif; }
+  .busca button { border: none; border-radius: 30px; padding: 0 18px; background: var(--mostarda); color: var(--verde);
+                  font: 700 15px Poppins, sans-serif; cursor: pointer; }
+  .aviso-busca { font-size: 12px; color: var(--ouro); margin-top: 8px; min-height: 16px; }
   main { max-width: 560px; margin: 0 auto; padding: 18px 16px 40px; display: grid; gap: 16px; }
   .card { background: #fff; border-radius: 22px; overflow: hidden; display: flex; gap: 14px; padding: 12px;
-          box-shadow: 0 6px 18px rgba(47,59,53,.10); text-decoration: none; color: inherit; position: relative; }
+          box-shadow: 0 6px 18px rgba(31,74,58,.10); text-decoration: none; color: inherit; position: relative;
+          scroll-margin-top: 16px; transition: box-shadow .3s; }
+  .card.achado { box-shadow: 0 0 0 4px var(--mostarda), 0 6px 18px rgba(31,74,58,.18); }
   .card img { width: 118px; height: 118px; object-fit: contain; border-radius: 14px; background: #fff; flex-shrink: 0; }
   .info { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+  .num { font-size: 12px; font-weight: 700; color: var(--verde); }
   .titulo { font-size: 14px; font-weight: 500; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2;
             -webkit-box-orient: vertical; overflow: hidden; }
-  .de { font-size: 12px; color: var(--suave); text-decoration: line-through; margin-top: 6px; }
-  .por { font-family: Fraunces, serif; font-size: 24px; font-weight: 700; color: var(--terracota); line-height: 1.1; }
+  .de { font-size: 12px; color: var(--suave); text-decoration: line-through; margin-top: 4px; }
+  .por { font-family: Fraunces, serif; font-size: 24px; font-weight: 700; color: var(--verde); line-height: 1.1; }
   .rodape { display: flex; align-items: center; justify-content: space-between; margin-top: auto; gap: 8px; padding-top: 6px; }
   .loja { font-size: 11px; color: var(--suave); }
-  .botao { background: var(--verde); color: var(--creme); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 30px; white-space: nowrap; }
-  .selo { position: absolute; top: 10px; left: 10px; background: var(--verde); color: var(--amarelo);
+  .botao { background: var(--mostarda); color: var(--verde); font-size: 13px; font-weight: 700; padding: 7px 16px; border-radius: 30px; white-space: nowrap; }
+  .selo { position: absolute; top: 10px; left: 10px; background: var(--verde); color: var(--ouro);
           font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 8px; }
-  .novo { position: absolute; top: 112px; left: 10px; background: var(--amarelo); color: var(--verde);
+  .novo { position: absolute; top: 112px; left: 10px; background: var(--mostarda); color: var(--verde);
           font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 8px; letter-spacing: .5px; }
   footer { text-align: center; font-size: 11px; color: var(--suave); padding: 0 16px 30px; line-height: 1.5; }
 </style></head>
 <body>
   <header>
-    <div class="avatar">L</div>
-    <h1>Luzi indica</h1>
+    <img class="avatar" src="logo.png" alt="Mavi">
+    <h1>Mavi indica</h1>
     <div class="sub">achadinhos para casa</div>
-    <div class="atualizado">atualizado 15/11 às 19:18</div>
+    <form class="busca" onsubmit="return achar(event)">
+      <input id="n" type="number" inputmode="numeric" placeholder="Digite o Nº do Story">
+      <button>Ir</button>
+    </form>
+    <div class="aviso-busca" id="aviso"></div>
+    <div class="atualizado">atualizado 15/11 às 19:26</div>
   </header>
   <main>
-    <a class="card" href="https://meli.la/1kk45AS" target="_blank" rel="noopener">
+    <a class="card" id="n13" href="https://meli.la/1kk45AS" target="_blank" rel="noopener">
       <span class="selo">-50%</span><span class="novo">NOVO</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_698796-MLA115106673678_082026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 13</div>
         <div class="titulo">Planta Artificial Costela De Adão Realista Decorativa 18 Folhas Área Interna E Externa</div>
         <div class="de">R$ 49,90</div>
         <div class="por">R$ 24,90</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/2CQ1Wyx" target="_blank" rel="noopener">
+    <a class="card" id="n12" href="https://meli.la/2CQ1Wyx" target="_blank" rel="noopener">
       <span class="selo">-38%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_964568-MLA115683908212_092026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 12</div>
         <div class="titulo">Cascata Natal com 8 Funções 400 Leds 10 Metros Branco Quente Extensível Macho Fêmea A Prova D&#x27;agua área interna e externo para Casa e Apartamento LARUNO</div>
         <div class="de">R$ 119,90</div>
         <div class="por">R$ 74,90</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/1Y7L3tk" target="_blank" rel="noopener">
+    <a class="card" id="n11" href="https://meli.la/1Y7L3tk" target="_blank" rel="noopener">
       <span class="selo">-46%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_602424-MLA112337453733_052026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 11</div>
         <div class="titulo">Kit 3 Cestos Organizadores Bambu Multiuso Lyor Com Forro Retangular Cozinha Banheiro Cestinhos Lhp</div>
         <div class="de">R$ 139,99</div>
         <div class="por">R$ 75,99</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/2K4B7ZS" target="_blank" rel="noopener">
+    <a class="card" id="n10" href="https://meli.la/2K4B7ZS" target="_blank" rel="noopener">
       <span class="selo">-46%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_776333-MLA115754226840_092026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 10</div>
         <div class="titulo">Porta Talheres De gaveta Com 5 Compartimentos Para Talher Bandeja Organizadora De utensílios De Cozinha Em Plastico Resistente Divisórias Separador Garfo Faca Colher Organizador Multiuso</div>
         <div class="de">R$ 35,00</div>
         <div class="por">R$ 19,00</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/1sexNXY" target="_blank" rel="noopener">
+    <a class="card" id="n9" href="https://meli.la/1sexNXY" target="_blank" rel="noopener">
       <span class="selo">-54%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_684878-MLA116513373290_092026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 9</div>
         <div class="titulo">Festão Arvore de Natal 10 Metros Verde Grosso Cheio Flexível Decoração 5 Peças 2m x 9cm</div>
         <div class="de">R$ 78,90</div>
         <div class="por">R$ 35,90</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/2zyjVpX" target="_blank" rel="noopener">
+    <a class="card" id="n8" href="https://meli.la/2zyjVpX" target="_blank" rel="noopener">
       <span class="selo">-45%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_824985-MLA118402601177_092026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 8</div>
         <div class="titulo">Luminária Projetor Astronauta Galáxia Estrelas Lua LED Bluetooth Caixa de Som Integrada Controle Remoto 360° Luz Noturna Abajur de Mesa para Quarto Sala Decoração Presente Rezzet</div>
         <div class="de">R$ 120,00</div>
         <div class="por">R$ 66,00</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/1frxFZ6" target="_blank" rel="noopener">
+    <a class="card" id="n7" href="https://meli.la/1frxFZ6" target="_blank" rel="noopener">
       <span class="selo">-68%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_876411-MLA85220468958_062025-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 7</div>
         <div class="titulo">Kit Organizadores Com 14 Multiuso Gavetas Empilhavel</div>
         <div class="de">R$ 139,90</div>
         <div class="por">R$ 45,18</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/1hL8xHc" target="_blank" rel="noopener">
+    <a class="card" id="n6" href="https://meli.la/1hL8xHc" target="_blank" rel="noopener">
       <span class="selo">-49%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_812475-MLA119047955267_102026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 6</div>
         <div class="titulo">Porta Temperos Profissional Giratório 9 Potes Vidro Tampa</div>
         <div class="de">R$ 67,99</div>
         <div class="por">R$ 34,90</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/2actfQc" target="_blank" rel="noopener">
+    <a class="card" id="n5" href="https://meli.la/2actfQc" target="_blank" rel="noopener">
       <span class="selo">-27%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_628871-MLA112849017695_062026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 5</div>
         <div class="titulo">Kit 2 Esteiras Porta Copos Para Braço De Sofá Mdf Caramelo</div>
         <div class="de">R$ 43,87</div>
         <div class="por">R$ 31,90</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/2BpeVRg" target="_blank" rel="noopener">
+    <a class="card" id="n4" href="https://meli.la/2BpeVRg" target="_blank" rel="noopener">
       <span class="selo">-57%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_718827-MLA121009065709_112026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 4</div>
         <div class="titulo">Kit 10 Pote De Vidro Marmita Hermético 370ml Freezer Vitrex</div>
         <div class="de">R$ 159,90</div>
         <div class="por">R$ 68,90</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/22CBrZk" target="_blank" rel="noopener">
+    <a class="card" id="n3" href="https://meli.la/22CBrZk" target="_blank" rel="noopener">
       <span class="selo">-52%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_658225-MLA113394480122_072026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 3</div>
         <div class="titulo">Porta Guardanapo De Mesa Bambu Portatil Restaurante Wow World Of Wonders</div>
         <div class="de">R$ 49,99</div>
         <div class="por">R$ 23,99</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/1twt48u" target="_blank" rel="noopener">
+    <a class="card" id="n2" href="https://meli.la/1twt48u" target="_blank" rel="noopener">
       <span class="selo">-41%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_966984-MLA116612926198_092026-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 2</div>
         <div class="titulo">Kit com 3 Suportes para Controle Remoto Universal de Parede Branco DUNANDA</div>
         <div class="de">R$ 31,99</div>
         <div class="por">R$ 18,93</div>
         <div class="rodape"><span class="loja">Mercado Livre</span><span class="botao">Comprar</span></div>
       </div>
     </a>
-    <a class="card" href="https://meli.la/2V3ZMSK" target="_blank" rel="noopener">
+    <a class="card" id="n1" href="https://meli.la/2V3ZMSK" target="_blank" rel="noopener">
       <span class="selo">-52%</span>
       <img src="https://http2.mlstatic.com/D_NQ_NP_861989-MLA95392273166_102025-F.jpg" alt="" loading="lazy">
       <div class="info">
+        <div class="num">Nº 1</div>
         <div class="titulo">Bebedouro Cães Gatos Pelo Longo 2 Litros Filtro De Carvao Cor Branco</div>
         <div class="de">R$ 124,29</div>
         <div class="por">R$ 59,90</div>
@@ -173,5 +200,18 @@
       </div>
     </a>
   </main>
-  <footer>Preços e estoque podem mudar a qualquer momento.<br>Como afiliada, posso receber comissão pelas compras feitas por estes links.</footer>
+  <footer>Preços e estoque podem mudar a qualquer momento.<br>Como afiliadas, podemos receber comissão pelas compras feitas por estes links.</footer>
+<script>
+  function achar(e) {
+    e.preventDefault();
+    const n = document.getElementById("n").value.trim();
+    const card = document.getElementById("n" + n);
+    document.querySelectorAll(".achado").forEach(c => c.classList.remove("achado"));
+    if (!card) { document.getElementById("aviso").textContent = "Não achei o Nº " + n + ". Ela pode ter acabado :("; return false; }
+    document.getElementById("aviso").textContent = "";
+    card.classList.add("achado");
+    card.scrollIntoView({ block: "center" });
+    return false;
+  }
+</script>
 </body></html>
