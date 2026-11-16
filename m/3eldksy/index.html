@@ -4,7 +4,7 @@
 </head><body style="font-family:sans-serif;text-align:center;padding-top:40vh;background:#1F4A3A;color:#FFF6E8">
 Abrindo o Mercado Livre...
 <script>
-  var destino = "https://produto.mercadolivre.com.br/MLB-7412778898?matt_word=mpam&amp;matt_tool=47177855", foi = false;
+  var destino = "https://produto.mercadolivre.com.br/MLB-7412778898?matt_word=mpam&matt_tool=47177855", foi = false;
   function ir() { if (!foi) { foi = true; location.replace(destino); } }
   window.addEventListener("load", function () {
     if (window.umami) { umami.track("Mercado Livre (link Mavi)").then(ir, ir); }
